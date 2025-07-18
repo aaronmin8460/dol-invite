@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Header from "./components/Header";
 import DdayCounter from "./components/DdayCounter";
 import Comment from "./components/Commnet";
@@ -21,18 +22,89 @@ function App() {
     location: "부산 동구 조방로 14 3층 (현 뷔페디)",
   };
 
+  const fadeInSlideUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: { delay: i * 0.4, duration: 0.8 },
+    }),
+  };
+
   return (
     <div className="bg-white w-full">
       <div className="max-w-md mx-auto text-center">
-        <Header name={eventData.name} />
-        <PhotoGallery photo={eventData.photo} />
-        <DdayCounter date={eventData.date} />
-        <Comment name={eventData.name} />
-        <BirthdayCalendar birthday={eventData.date} />
-        <Location location={eventData.location} />
-        <KakaoMap lat={37.4979} lng={127.0276} />
-        <AccountInfo account={eventData.account} />
-        <Footer />
+        <motion.div
+          variants={fadeInSlideUp}
+          initial="hidden"
+          animate="visible"
+          custom={0}>
+          <PhotoGallery photo={eventData.photo} />
+        </motion.div>
+
+        <motion.div
+          variants={fadeInSlideUp}
+          initial="hidden"
+          animate="visible"
+          custom={1}>
+          <Header name={eventData.name} />
+        </motion.div>
+
+        <motion.div
+          variants={fadeInSlideUp}
+          initial="hidden"
+          animate="visible"
+          custom={2}>
+          <DdayCounter date={eventData.date} />
+        </motion.div>
+
+        <motion.div
+          variants={fadeInSlideUp}
+          initial="hidden"
+          animate="visible"
+          custom={3}>
+          <Comment name={eventData.name} />
+        </motion.div>
+
+        <motion.div
+          variants={fadeInSlideUp}
+          initial="hidden"
+          animate="visible"
+          custom={4}>
+          <BirthdayCalendar birthday={eventData.date} />
+        </motion.div>
+
+        <motion.div
+          variants={fadeInSlideUp}
+          initial="hidden"
+          animate="visible"
+          custom={5}>
+          <Location location={eventData.location} />
+        </motion.div>
+
+        <motion.div
+          variants={fadeInSlideUp}
+          initial="hidden"
+          animate="visible"
+          custom={6}>
+          <KakaoMap lat={35.1387281351032} lng={129.06345343296} />
+        </motion.div>
+
+        <motion.div
+          variants={fadeInSlideUp}
+          initial="hidden"
+          animate="visible"
+          custom={7}>
+          <AccountInfo account={eventData.account} />
+        </motion.div>
+
+        <motion.div
+          variants={fadeInSlideUp}
+          initial="hidden"
+          animate="visible"
+          custom={8}>
+          <Footer />
+        </motion.div>
       </div>
     </div>
   );

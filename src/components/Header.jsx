@@ -1,9 +1,12 @@
+import { motion } from "framer-motion";
+
 export default function Header({ name }) {
   return (
-    <>
-      <h1 className="text-3xl  font-bold mb-2 text-center">
-        소중한 우리 아이 첫돌이야기
-      </h1>
-    </>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}>
+      <h1 className="text-4xl font-bold">{name}의 첫 번째 생일</h1>
+    </motion.div>
   );
 }
