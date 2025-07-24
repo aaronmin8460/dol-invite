@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>돌잔치 초대장</title>
+    <meta property="og:title" content="돌잔치 초대장" />
+    <meta property="og:description" content="우리 아기의 첫 생일을 함께 축하해주세요 🎉" />
+    <meta property="og:image" content="https://i.ibb.co/PvJykTgH/Thumbnail.jpg" />
+    <meta property="og:url" content="https://dol-invite.vercel.app/preview.html" />
+    <meta property="og:type" content="website" />
+  </head>
+  <body>
+    <script>
+      const params = new URLSearchParams(location.search);
+      const to = params.get("to");
+      if (to) {
+        location.replace(`/${to}`);
+      } else {
+        location.replace("/");
+      }
+    </script>
+  </body>
+</html>
